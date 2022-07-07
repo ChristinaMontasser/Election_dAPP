@@ -1,10 +1,10 @@
 @nearBindgen
-export class citizn {
-  public citiznId:string;
+export class citizen {
+  public citizenId:string;
   elected: string ;
-  constructor(elected:string, citiznRId: string)
+  constructor(elected:string, citizenId: string)
   {
     this.elected =elected;
-    this.citiznId = citiznRId
+    this.citizenId = citizenId
   }
 }

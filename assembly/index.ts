@@ -1,18 +1,18 @@
 import { PersistentVector, Context} from "near-sdk-as";
-import { citizn } from "./models";
+import { citizen } from "./models";
 
 @nearBindgen
 export class Voting {
-  public citiznes: PersistentVector<citizn> = new PersistentVector<citizn>("K");
+  public citiznes: PersistentVector<citizen> = new PersistentVector<citizen>("K");
   T: i32 =0
   B : i32 =0
 
 
-  notHear(sender: string): bool{
+  notHere(sender: string): bool{
     let flag: bool = 1;
     for(let i: i32=0; i< this.citiznes.length; i++ )
     {
-      if(this.citiznes[i].citiznId== sender)
+      if(this.citiznes[i].citizenId== sender)
       {
         flag = 0;
         break;
@@ -24,9 +24,9 @@ export class Voting {
   @mutateState()
   voteTrump(): string{
     let message: string = "You've voted once before"
-    if(this.notHear(Context.sender))
+    if(this.notHere(Context.sender))
     {
-      this.citiznes.push(new citizn("Trump", Context.sender))
+      this.citiznes.push(new citizen("Trump", Context.sender))
       this.T+=1
       message = "Vote is done"
     }
@@ -36,18 +36,18 @@ export class Voting {
   @mutateState()
   voteBiden(): string{
     let message: string ="You've voted once before"
-    if(this.notHear(Context.sender))
+    if(this.notHere(Context.sender))
     {
-      this.citiznes.push(new citizn("Biden", Context.sender))
+      this.citiznes.push(new citizen("Biden", Context.sender))
       this.B+=1
       message = "Vote is done"
     }
     return message
   }
 
-  viewVoting(): Array<citizn>
+  viewVoting(): Array<citizen>
   {
-    let vote :Array<citizn> = new Array <citizn>(this.citiznes.length)
+    let vote :Array<citizen> = new Array <citizen>(this.citiznes.length)
     for(let i: i32=0; i< this.citiznes.length; i++ )
     {
       vote[i]= this.citiznes[i]
