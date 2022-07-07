@@ -2,10 +2,12 @@
 
 **App idea:** presidential election application using BlockChain to prevent electoral fraud.
 
+Citizen Class --> has the id sender and elected whom.
+
 Exported Class --> voting 
 
 **Attributes:**
-    Arraylist holds the sender id when they vote.
+    Arraylist of Citizen holds the citizen when they vote.
 
 **Functions:**
   
@@ -21,6 +23,6 @@ Exported Class --> voting
 
     3. ViewVoting
 
-      return --> the Array attribute
+      return --> the attribute ArrayList
   
     4. function to view elections till now for each president 
