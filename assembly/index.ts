@@ -61,4 +61,5 @@ export class Voting {
   Biden(): i32{
     return this.B
   }
+  
 }
