@@ -1,4 +1,4 @@
-# Voting_dAPP
+# Election_dAPP
 
 **App idea:** presidential election application using BlockChain to prevent electoral fraud.
 
